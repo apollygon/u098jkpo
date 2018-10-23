@@ -10,11 +10,11 @@ SetCompressor /SOLID lzma
 !define URL www.soferox.org
 
 # MUI Symbol Definitions
-!define MUI_ICON "/root/soferox/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/root/soferox/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/root/sfx/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/root/sfx/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/root/soferox/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/root/sfx/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -23,7 +23,7 @@ SetCompressor /SOLID lzma
 !define MUI_FINISHPAGE_RUN "$WINDIR\explorer.exe"
 !define MUI_FINISHPAGE_RUN_PARAMETERS $INSTDIR\soferox-qt 
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/root/soferox/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/root/sfx/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -49,7 +49,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /root/soferox/soferox-${VERSION}-win-setup.exe
+OutFile /root/sfx/soferox-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\Soferox
 !else
@@ -74,14 +74,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /root/soferox/release/soferox-qt
-    File /oname=COPYING.txt /root/soferox/COPYING
-    File /oname=readme.txt /root/soferox/doc/README_windows.txt
+    File /root/sfx/release/soferox-qt
+    File /oname=COPYING.txt /root/sfx/COPYING
+    File /oname=readme.txt /root/sfx/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /root/soferox/release/soferoxd
-    File /root/soferox/release/soferox-cli
+    File /root/sfx/release/soferoxd
+    File /root/sfx/release/soferox-cli
     SetOutPath $INSTDIR\doc
-    File /r /root/soferox/doc\*.*
+    File /r /root/sfx/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 SectionEnd
